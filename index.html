@@ -42,13 +42,13 @@
                     <form action="" class="edit-form form" onsubmit="event.preventDefault()">
                         <h3 class="edit-form-title">فرم ویرایش حساب کاربری</h3>
                         <label for="" class="label">نام :</label>
-                        <input type="text" class="input edit-firstname" placeholder="نام" required>
+                        <input type="text" class="input edit-firstname" placeholder="نام" required autocomplete="additional-name" name="firstname">
                         <label for="" class="label">نام خانوادگی:</label>
-                        <input type="text" class="input edit-lsstname" placeholder="نام خانوادگی" required>
+                        <input type="text" class="input edit-lsstname" placeholder="نام خانوادگی" required autocomplete="additional-name" name="lastname">
                         <label for="" class="label">ایمیل :</label>
-                        <input type="email" class="input edit-email" placeholder="ایمیل" required>
+                        <input type="email" class="input edit-email" placeholder="ایمیل" required required autocomplete="additional-name" name="email">
                         <label for="" class="label">رمز عبور :</label>
-                        <input type="text" class="input edit-password" placeholder="رمز" required>
+                        <input type="text" class="input edit-password" placeholder="رمز" required required autocomplete="additional-name" name="password">
                         <button type="submit" class="submit-edit-form">ویرایش</button>
                     </form>
                 </div>
@@ -60,7 +60,7 @@
                 <lable class="lastname-lb label">نام خانوادگی :</lable>
                 <input type="text" class="lastname input" placeholder="نام خانوادگی شما" required autocomplete="additional-name" name="lastname">
                 <lable class="email-lb label">ایمیل :</lable>
-                <input type="text" class="email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
+                <input type="email" class="email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
                 <lable class="password-lb label">رمز :</lable>
                 <input type="password" class="password input" placeholder="رمز عبور شما" required autocomplete="additional-name" name="password"> 
                 <lable class="verify-pass-lb label">بررسی صحت رمز :</lable>
@@ -87,7 +87,7 @@
             <form action="" class="login-form form result" onsubmit="event.preventDefault()">
                 <h2 class="title-form">فرم ورود </h2>
                 <label for="" class="label">ایمیل :</label>
-                <input type="text" class="login-email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
+                <input type="email" class="login-email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
                 <label for="" class="label">رمز عبور :</label>
                 <input type="password" class="login-password input" placeholder="رمز عبور" required autocomplete="additional-name" name="password">
                 <button type="submit" class="submit-login">ورود</button>
