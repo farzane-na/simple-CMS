@@ -468,7 +468,7 @@ tr:nth-child(odd) {
         margin-bottom: 0.5rem;
     }
     .message-modal{
-        width: 100%;
+        width: 90%;
     }
     .message-modal-text{
         font-size: 1rem;
