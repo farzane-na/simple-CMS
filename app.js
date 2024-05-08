@@ -166,6 +166,7 @@ const addData = () => {
             // messageModal.classList.add("message-modal-visible")
             handleMessageModal()
             modal.style.backgroundColor="var(--calm)"
+            messageModalBtn.style.backgroundColor="yellowgreen"
             messageModalText.innerHTML="تبریک می گویم. شما با موفقیت ثبت نام شدید. حالا می توانید از بخش ورود، وارد پنل کاربری خود شوید. :)"
             clearRegisterForm()
         })
