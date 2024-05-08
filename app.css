@@ -457,6 +457,12 @@ tr:nth-child(odd) {
     .user-table{
         margin-top: 15rem;
     }
+    .user-box{
+        width: 100%;
+    }
+    .user-email{
+        font-size: 0.8rem;
+    }
     .userid{
         font-size: 1rem;
     }
