@@ -110,6 +110,8 @@ const checkValidEmailForRegister=()=>{
             modal.classList.add("visible-modal")
             messageModal.classList.add("message-modal-visible")
             messageModalText.innerHTML="عه! چی شد؟ این ایمیل قبلا ثبت شده :("
+            clearRegisterForm()
+            creatCapchacode()
         }
     })
 }
@@ -138,10 +140,11 @@ const addData = () => {
         })
         .then(res => {
             console.log(res);
-            clearRegisterForm()
+            modal.style.backgroundColor="var(--calm)"
             modal.classList.add("visible-modal")
             messageModal.classList.add("message-modal-visible")
-            messageModalText.innerHTML="تبریک می گویم. شما با موفقیت ثبت نام شدید. حالا می توانید از بخش ورود، وارد پنل کاربری خود شوید.:)"
+            messageModalText.innerHTML="تبریک می گویم. شما با موفقیت ثبت نام شدید. حالا می توانید از بخش ورود، وارد پنل کاربری خود شوید. :)"
+            clearRegisterForm()
         })
 }
 //////////////////// Functions For Create Table of Users ///////////
