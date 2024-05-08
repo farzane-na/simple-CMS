@@ -27,6 +27,10 @@
                 </div>
             </div>
             <div class="modal">
+                <div class="message-modal">
+                    <h2 class="message-modal-text"></h2>
+                    <button class="message-modal-btn">باشه</button>
+                </div>
                 <div class="delete-modal">
                     <h3 class="delete-modal__text">آیا مطمئن هستید میخواهید حساب کاربری خودتان را حذف کنید؟</h3>
                     <div class="handling-btn">
@@ -52,18 +56,18 @@
             <form action="" class="register-form result form" onsubmit="event.preventDefault()">
                 <h2 class="title-form">فرم ثبت نام</h2>
                 <lable class="firstname-lb label">نام :</lable>
-                <input type="text" class="firstname input" placeholder="نام شما" required>
+                <input type="text" class="firstname input" placeholder="نام شما" required autocomplete="additional-name" name="firstname">
                 <lable class="lastname-lb label">نام خانوادگی :</lable>
-                <input type="text" class="lastname input" placeholder="نام خانوادگی شما" required>
+                <input type="text" class="lastname input" placeholder="نام خانوادگی شما" required autocomplete="additional-name" name="lastname">
                 <lable class="email-lb label">ایمیل :</lable>
-                <input type="text" class="email input" placeholder="ایمیل شما" required>
+                <input type="text" class="email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
                 <lable class="password-lb label">رمز :</lable>
-                <input type="password" class="password input" placeholder="رمز عبور شما" required>
+                <input type="password" class="password input" placeholder="رمز عبور شما" required autocomplete="additional-name" name="password"> 
                 <lable class="verify-pass-lb label">بررسی صحت رمز :</lable>
-                <input type="password" class="verify-pass input" placeholder="بررسی رمز عبور شما" required>
+                <input type="password" class="verify-pass input" placeholder="بررسی رمز عبور شما" required autocomplete="additional-name" >
                 <lable class="verify-pass-lb label">کد کپچا را وارد کنید :</lable>
                 <div class="form-capcha"></div>
-                <input type="text" class="capcha-code input" placeholder="کد امنیتی" required>
+                <input type="text" class="capcha-code input" placeholder="کد امنیتی" required autocomplete="additional-name">
                 <button class="submit-form" type="submit">ثبت نام</button>
             </form>
 
@@ -83,9 +87,9 @@
             <form action="" class="login-form form result" onsubmit="event.preventDefault()">
                 <h2 class="title-form">فرم ورود </h2>
                 <label for="" class="label">ایمیل :</label>
-                <input type="text" class="login-email input" placeholder="ایمیل شما" required>
+                <input type="text" class="login-email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
                 <label for="" class="label">رمز عبور :</label>
-                <input type="password" class="login-password input" placeholder="رمز عبور" required>
+                <input type="password" class="login-password input" placeholder="رمز عبور" required autocomplete="additional-name" name="password">
                 <button type="submit" class="submit-login">ورود</button>
             </form>
             <div class="user-box "></div>

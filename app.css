@@ -396,7 +396,36 @@ tr:nth-child(odd) {
 .submit-edit-form:hover {
     background-color: var(--thirty-color);
 }
-
+.message-modal{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.7rem;
+    width: 80%;
+}
+.message-modal-visible{
+    display: flex;
+}
+.message-modal-text{
+    color: var(--thirty-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.message-modal-btn{
+    width: 50%;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    font-family: var(--font-family);
+    background-color: yellowgreen;
+    padding: 0.5rem;
+    margin: 0 auto;
+    color: #fff;
+    cursor: pointer;
+}
 /*//////////////////////////////*/
 @media(max-width:855px) {
     .container {
@@ -437,5 +466,11 @@ tr:nth-child(odd) {
     .delete-user , .edit-user{
         width: 100%;
         margin-bottom: 0.5rem;
+    }
+    .message-modal{
+        width: 100%;
+    }
+    .message-modal-text{
+        font-size: 1rem;
     }
 }
