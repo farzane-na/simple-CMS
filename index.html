@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="//fdn.fontcdn.ir">
+    <link rel="preconnect" href="//v1.fontapi.ir">
+    <link href="https://v1.fontapi.ir/css/Shabnam" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app.css">
+    <title>my cms</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu-box">
+            <div class="menu-item register">ثبت نام</div>
+            <div class="menu-item login">وارد شدن</div>
+            <div class="menu-item all-user">کاربران</div>
+        </div>
+        <div class="result-wrapper">
+            <div class="welcome-box">
+                <h2 class="welcome-text">به پنل مدیریت محتوای من خوش آمدید.</h2>
+                <div class="welcome-picture">
+                    <img src="Welcome-bro.png" alt="welcome image">
+                </div>
+            </div>
+            <div class="modal">
+                <div class="delete-modal">
+                    <h3 class="delete-modal__text">آیا مطمئن هستید میخواهید حساب کاربری خودتان را حذف کنید؟</h3>
+                    <div class="handling-btn">
+                        <button class="accept-btn">بله</button>
+                        <button class="ignore-btn">خیر</button>
+                    </div>
+                </div>
+                <div class="edit-modal">
+                    <form action="" class="edit-form form" onsubmit="event.preventDefault()">
+                        <h3 class="edit-form-title">فرم ویرایش حساب کاربری</h3>
+                        <label for="" class="label">نام :</label>
+                        <input type="text" class="input edit-firstname" placeholder="نام" required>
+                        <label for="" class="label">نام خانوادگی:</label>
+                        <input type="text" class="input edit-lsstname" placeholder="نام خانوادگی" required>
+                        <label for="" class="label">ایمیل :</label>
+                        <input type="email" class="input edit-email" placeholder="ایمیل" required>
+                        <label for="" class="label">رمز عبور :</label>
+                        <input type="text" class="input edit-password" placeholder="رمز" required>
+                        <button type="submit" class="submit-edit-form">ویرایش</button>
+                    </form>
+                </div>
+            </div>
+            <form action="" class="register-form result form" onsubmit="event.preventDefault()">
+                <h2 class="title-form">فرم ثبت نام</h2>
+                <lable class="firstname-lb label">نام :</lable>
+                <input type="text" class="firstname input" placeholder="نام شما" required>
+                <lable class="lastname-lb label">نام خانوادگی :</lable>
+                <input type="text" class="lastname input" placeholder="نام خانوادگی شما" required>
+                <lable class="email-lb label">ایمیل :</lable>
+                <input type="text" class="email input" placeholder="ایمیل شما" required>
+                <lable class="password-lb label">رمز :</lable>
+                <input type="password" class="password input" placeholder="رمز عبور شما" required>
+                <lable class="verify-pass-lb label">بررسی صحت رمز :</lable>
+                <input type="password" class="verify-pass input" placeholder="بررسی رمز عبور شما" required>
+                <lable class="verify-pass-lb label">کد کپچا را وارد کنید :</lable>
+                <div class="form-capcha"></div>
+                <input type="text" class="capcha-code input" placeholder="کد امنیتی" required>
+                <button class="submit-form" type="submit">ثبت نام</button>
+            </form>
+
+            <table class="user-table resut">
+                <!-- <tr class="table-header">
+                    <th class="id-lbt">ID</th>
+                    <th class="name-lbt">نام شخص</th>
+                    <th class="email-lbt">ایمیل</th>
+                </tr> -->
+                <!-- <tr class="row">
+                    <td class="id column-table">1232</td>
+                    <td class="name column-table">tvchki</td>
+                    <td class="email column-table">tvchki</td>
+                </tr> -->
+            </table>
+
+            <form action="" class="login-form form result" onsubmit="event.preventDefault()">
+                <h2 class="title-form">فرم ورود </h2>
+                <label for="" class="label">ایمیل :</label>
+                <input type="text" class="login-email input" placeholder="ایمیل شما" required>
+                <label for="" class="label">رمز عبور :</label>
+                <input type="password" class="login-password input" placeholder="رمز عبور" required>
+                <button type="submit" class="submit-login">ورود</button>
+            </form>
+            <div class="user-box "></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
