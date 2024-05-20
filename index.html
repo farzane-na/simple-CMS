@@ -62,7 +62,13 @@
                 <lable class="email-lb label">ایمیل :</lable>
                 <input type="text" class="email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
                 <lable class="password-lb label">رمز :</lable>
-                <input type="password" class="password input" placeholder="رمز عبور شما" required autocomplete="additional-name" name="password"> 
+                <div class="password-box">
+                    <input type="password" class="password input" placeholder="رمز عبور شما" required autocomplete="additional-name" name="password"> 
+                    <svg class="showPass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                </div>
                 <lable class="verify-pass-lb label">بررسی صحت رمز :</lable>
                 <input type="password" class="verify-pass input" placeholder="بررسی رمز عبور شما" required autocomplete="additional-name" >
                 <lable class="verify-pass-lb label">کد کپچا را وارد کنید :</lable>
@@ -83,7 +89,13 @@
                 <label for="" class="label">ایمیل :</label>
                 <input type="email" class="login-email input" placeholder="ایمیل شما" required autocomplete="additional-name" name="email">
                 <label for="" class="label">رمز عبور :</label>
-                <input type="password" class="login-password input" placeholder="رمز عبور" required autocomplete="additional-name" name="password">
+                <div class="password-box">
+                    <input type="password" class="login-password input" placeholder="رمز عبور" required autocomplete="additional-name" name="password">
+                    <svg class="showLoginPass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                </div>
                 <button type="submit" class="submit-login">ورود</button>
             </form>
             <div class="user-box "></div>

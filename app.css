@@ -180,6 +180,22 @@ body {
 #checkbox{
     cursor: pointer;
 }
+.password-box{
+    width: 100%;
+    position: relative;
+}
+.showPass ,.showLoginPass{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 8px;
+    left: 10px;
+    cursor: pointer;
+    display: block;
+}
+.password , .login-password{
+    width: 100%;
+}
 
 /*//////////////////////////////////*/
 .user-table {

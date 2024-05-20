@@ -23,6 +23,7 @@ const checkbox = $.querySelector("#checkbox")
 const checkboxText = $.querySelector(".checkbox-text")
 const now = new Date()
 const emailRegex = /.+@.+\.com/
+const showPasswordBtn=$.querySelector(".showPass")
 //////////////////// table Variable ///////////
 const allUser = $.querySelector(".all-user")
 const userTable = $.querySelector(".user-table")
@@ -35,6 +36,7 @@ const submitLoginBtn = $.querySelector(".submit-login")
 const userBox = $.querySelector(".user-box")
 let cookieArray = null
 let mainCookie = null
+const showLoginPassBtn=$.querySelector(".showLoginPass")
 
 //////////////////// Modal Variable ///////////
 const modal = $.querySelector(".modal")
@@ -397,5 +399,19 @@ checkboxText.addEventListener("click", () => {
         checkbox.checked = false
     } else {
         checkbox.checked = true
+    }
+})
+showPasswordBtn.addEventListener("click",()=>{
+    if(registerPassword.getAttribute("type")=="password"){
+        registerPassword.setAttribute("type","text")
+    }else{
+        registerPassword.setAttribute("type","password")
+    }
+})
+showLoginPassBtn.addEventListener("click",()=>{
+    if(loginPassword.getAttribute("type")=="password"){
+        loginPassword.setAttribute("type","text")
+    }else{
+        loginPassword.setAttribute("type","password")
     }
 })
