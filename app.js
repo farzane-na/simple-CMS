@@ -85,7 +85,7 @@ const handleMessageModal = () => {
 }
 //////////////////// Functions For Register ///////////
 const checkRegisterInput = () => {
-    if (registerFirstname.value == "" || registerLastname.value == "" || registerEmail.value == "" || registerPassword.value == "" || capchaCodeRegisterForm.value == "" || verifyPasswordRegisterForm.value == "") {
+    if (registerFirstname.value.trim() == "" || registerLastname.value.trim() == "" || registerEmail.value.trim() == "" || registerPassword.value.trim() == "" || capchaCodeRegisterForm.value.trim() == "" || verifyPasswordRegisterForm.value.trim() == "") {
         handleMessageModal()
         messageModalText.innerHTML = "لطفا تمام فیلد ها را پر کنید"
     } else {
@@ -210,7 +210,7 @@ const showLoginForm = (event) => {
     getCookie()
 }
 const checkLoginField = () => {
-    if (loginEmail.value == "" || loginPassword.value == "") {
+    if (loginEmail.value.trim() == "" || loginPassword.value.trim() == "") {
         handleMessageModal()
         messageModalText.innerHTML = "لطفا تمام فیلد ها را پر کنید"
     } else {
