@@ -23,7 +23,6 @@ html {
 body {
     font-family: var(--font-family);
     background-color: var(--blue-sky);
-    height: 100vh;
 }
 
 .container {
@@ -67,7 +66,6 @@ body {
 
 .result-wrapper {
     width: 80%;
-    height: 108vh;
     background-color: #fff;
     margin-right: 0.5rem;
     display: flex;
@@ -174,6 +172,13 @@ body {
 
 .submit-form:hover {
     background-color: var(--thirty-color);
+}
+.save-cookie{
+    margin: 0.5rem 0 1rem 0;
+}
+.checkbox-text,
+#checkbox{
+    cursor: pointer;
 }
 
 /*//////////////////////////////////*/
