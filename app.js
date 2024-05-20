@@ -4,13 +4,13 @@ const welcomeBox = $.querySelector(".welcome-box")
 const menuItem = $.querySelectorAll(".menu-item")
 const resultWrapper = $.querySelector(".result-wrapper")
 const allResult = $.querySelectorAll(".result")
-const messageModal=$.querySelector(".message-modal")
-const messageModalText=$.querySelector(".message-modal-text")
-const messageModalBtn=$.querySelector(".message-modal-btn")
+const messageModal = $.querySelector(".message-modal")
+const messageModalText = $.querySelector(".message-modal-text")
+const messageModalBtn = $.querySelector(".message-modal-btn")
 //////////////////// Register Variable ///////////
 const registerBtn = $.querySelector(".register")
 const registerForm = $.querySelector(".register-form")
-const captcha=$.querySelector(".form-capcha")
+const captcha = $.querySelector(".form-capcha")
 const submitBtn = $.querySelector(".submit-form")
 const registerFirstname = $.querySelector(".firstname")
 const registerLastname = $.querySelector(".lastname")
@@ -19,9 +19,10 @@ const registerPassword = $.querySelector(".password")
 const capchaCode = $.querySelector(".form-capcha")
 const capchaCodeRegisterForm = $.querySelector(".capcha-code")
 const verifyPasswordRegisterForm = $.querySelector(".verify-pass")
-const checkbox=$.querySelector("#checkbox")
-const checkboxText=$.querySelector(".checkbox-text")
-const now=new Date()
+const checkbox = $.querySelector("#checkbox")
+const checkboxText = $.querySelector(".checkbox-text")
+const now = new Date()
+const emailRegex = /.+@.+\.com/
 //////////////////// table Variable ///////////
 const allUser = $.querySelector(".all-user")
 const userTable = $.querySelector(".user-table")
@@ -32,8 +33,8 @@ const loginEmail = $.querySelector(".login-email")
 const loginPassword = $.querySelector(".login-password")
 const submitLoginBtn = $.querySelector(".submit-login")
 const userBox = $.querySelector(".user-box")
-let cookieArray=null
-let mainCookie=null
+let cookieArray = null
+let mainCookie = null
 
 //////////////////// Modal Variable ///////////
 const modal = $.querySelector(".modal")
@@ -73,10 +74,10 @@ const showRegisterForm = (event) => {
 
 }
 const creatCapchacode = () => {
-    capchaCode.innerHTML = Math.floor(Math.random()*1000000)
+    capchaCode.innerHTML = Math.floor(Math.random() * 1000000)
 }
-const handleMessageModal=()=>{
-    messageModalBtn.style.backgroundColor="red"
+const handleMessageModal = () => {
+    messageModalBtn.style.backgroundColor = "red"
     modal.classList.add("visible-modal")
     messageModal.classList.add("message-modal-visible")
 }
@@ -84,44 +85,49 @@ const handleMessageModal=()=>{
 const checkRegisterInput = () => {
     if (registerFirstname.value == "" || registerLastname.value == "" || registerEmail.value == "" || registerPassword.value == "" || capchaCodeRegisterForm.value == "" || verifyPasswordRegisterForm.value == "") {
         handleMessageModal()
-        messageModalText.innerHTML="لطفا تمام فیلد ها را پر کنید"
+        messageModalText.innerHTML = "لطفا تمام فیلد ها را پر کنید"
     } else {
-        if (registerPassword.value == verifyPasswordRegisterForm.value) {
-            if (capchaCodeRegisterForm.value == capchaCode.innerHTML) {
-                checkValidEmailForRegister()
-            }else{
-                handleMessageModal()
-                messageModalText.innerHTML="کد کپچا به درستی وارد نشده است."
+        if (emailRegex.test(registerEmail.value)) {
+            if (registerPassword.value == verifyPasswordRegisterForm.value) {
+                if (capchaCodeRegisterForm.value == capchaCode.innerHTML) {
+                    checkValidEmailForRegister()
+                } else {
+                    handleMessageModal()
+                    messageModalText.innerHTML = "کد کپچا به درستی وارد نشده است."
+                }
+            } else {
+                if (capchaCodeRegisterForm.value == capchaCode.innerHTML) {
+                    handleMessageModal()
+                    messageModalText.innerHTML = "رمز خود را به درستی وریفای نکردید"
+                } else {
+                    handleMessageModal()
+                    messageModalText.innerHTML = "رمز خود را به درستی وریفای نکردید. همچنین کپچا هم غلط وارد کردید!!"
+                }
             }
-        }else{
-            if (capchaCodeRegisterForm.value == capchaCode.innerHTML) {
-                handleMessageModal()
-                messageModalText.innerHTML="رمز خود را به درستی وریفای نکردید"
-            }else{
-                handleMessageModal()
-                messageModalText.innerHTML="رمز خود را به درستی وریفای نکردید. همچنین کپچا هم غلط وارد کردید!!"
-            }
+        } else {
+            handleMessageModal()
+            messageModalText.innerHTML = "ایمیل خود را به درستی وارد کنید."
         }
     }
 }
-const checkValidEmailForRegister=()=>{
+const checkValidEmailForRegister = () => {
     fetch("https://cms-project-9712a-default-rtdb.firebaseio.com/users.json")
-    .then(res=>res.json())
-    .then(data=>{
-        let isValidEmail=Object.entries(data).findIndex(user=>{
-            return user[1].email==registerEmail.value
+        .then(res => res.json())
+        .then(data => {
+            let isValidEmail = Object.entries(data).findIndex(user => {
+                return user[1].email == registerEmail.value
+            })
+            console.log(isValidEmail);
+            if (isValidEmail == -1) {
+                addData()
+                creatCapchacode()
+            } else {
+                handleMessageModal()
+                messageModalText.innerHTML = "عه! چی شد؟ این ایمیل قبلا ثبت شده :("
+                clearRegisterForm()
+                creatCapchacode()
+            }
         })
-        console.log(isValidEmail);
-        if(isValidEmail==-1){
-            addData()
-            creatCapchacode()
-        }else{
-            handleMessageModal()
-            messageModalText.innerHTML="عه! چی شد؟ این ایمیل قبلا ثبت شده :("
-            clearRegisterForm()
-            creatCapchacode()
-        }
-    })
 }
 const clearRegisterForm = () => {
     registerFirstname.value = ""
@@ -150,16 +156,16 @@ const addData = () => {
             console.log(registerEmail.value);
             setCookie(registerEmail.value)
             handleMessageModal()
-            modal.style.backgroundColor="var(--calm)"
-            messageModalBtn.style.backgroundColor="yellowgreen"
-            messageModalText.innerHTML="تبریک می گویم. شما با موفقیت ثبت نام شدید. حالا می توانید از بخش ورود، وارد پنل کاربری خود شوید. :)"
+            modal.style.backgroundColor = "var(--calm)"
+            messageModalBtn.style.backgroundColor = "yellowgreen"
+            messageModalText.innerHTML = "تبریک می گویم. شما با موفقیت ثبت نام شدید. حالا می توانید از بخش ورود، وارد پنل کاربری خود شوید. :)"
             clearRegisterForm()
         })
 }
-const setCookie=(email)=>{
-    if(checkbox.checked){
-        now.setTime(now.getTime()+10*24*60*60*1000)
-        $.cookie=`login-token=${email};path=/;expires=${now}`
+const setCookie = (email) => {
+    if (checkbox.checked) {
+        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 1000)
+        $.cookie = `login-token=${email};path=/;expires=${now}`
     }
 }
 
@@ -204,7 +210,7 @@ const showLoginForm = (event) => {
 const checkLoginField = () => {
     if (loginEmail.value == "" || loginPassword.value == "") {
         handleMessageModal()
-        messageModalText.innerHTML="لطفا تمام فیلد ها را پر کنید"
+        messageModalText.innerHTML = "لطفا تمام فیلد ها را پر کنید"
     } else {
         checkValidUser()
     }
@@ -219,10 +225,10 @@ const checkValidUser = () => {
             })
             console.log(findUserEmail);
             if (findUserEmail == -1) {
-                messageModalBtn.style.backgroundColor="red"
+                messageModalBtn.style.backgroundColor = "red"
                 modal.classList.add("visible-modal")
                 messageModal.classList.add("message-modal-visible")
-                messageModalText.innerHTML="چنین کاربری وجود ندارد. پس وارد بخش ثبت نام شوید و اول ثبت نام کنید"
+                messageModalText.innerHTML = "چنین کاربری وجود ندارد. پس وارد بخش ثبت نام شوید و اول ثبت نام کنید"
             } else {
                 console.log(Object.entries(data)[findUserEmail][1].password);
                 if (loginPassword.value == Object.entries(data)[findUserEmail][1].password) {
@@ -231,7 +237,7 @@ const checkValidUser = () => {
                     fillUserData(findUserEmail)
                 } else {
                     handleMessageModal()
-                    messageModalText.innerHTML="رمزی که وارد شده اشتباه است. مجدد تلاش کنید"
+                    messageModalText.innerHTML = "رمزی که وارد شده اشتباه است. مجدد تلاش کنید"
                 }
             }
         })
@@ -292,7 +298,7 @@ const editUser = () => {
     console.log(userId);
     if (editEmail.value == "" || editFirstName.value == "" || editLastName.value == "", editPassword.value == "") {
         handleMessageModal()
-        messageModalText.innerHTML="لطفا تمام فیلد ها را پر کنید"
+        messageModalText.innerHTML = "لطفا تمام فیلد ها را پر کنید"
     } else {
         let newUserData = {
             firstname: editFirstName.value,
@@ -336,21 +342,21 @@ const findUSerForEdit = () => {
             fillUserData(fintUserWithId)
         })
 }
-const getCookie=()=>{
-    cookieArray=$.cookie.split(";")
-    cookieArray.some(cookie=>{
-        if(cookie.includes("login-token")){
-            mainCookie=cookie.substring(cookie.indexOf("=")+1)
+const getCookie = () => {
+    cookieArray = $.cookie.split(";")
+    cookieArray.some(cookie => {
+        if (cookie.includes("login-token")) {
+            mainCookie = cookie.substring(cookie.indexOf("=") + 1)
             return true
         }
     })
-    if(mainCookie){
+    if (mainCookie) {
         searchWithCookiwEmail(mainCookie)
-    }else{
+    } else {
         loginForm.classList.add("visible")
     }
 }
-const searchWithCookiwEmail=Email=>{
+const searchWithCookiwEmail = Email => {
     fetch("https://cms-project-9712a-default-rtdb.firebaseio.com/users.json")
         .then(res => res.json())
         .then(data => {
@@ -360,10 +366,10 @@ const searchWithCookiwEmail=Email=>{
             })
             console.log(findUserEmail);
             if (findUserEmail == -1) {
-                messageModalBtn.style.backgroundColor="red"
+                messageModalBtn.style.backgroundColor = "red"
                 modal.classList.add("visible-modal")
                 messageModal.classList.add("message-modal-visible")
-                messageModalText.innerHTML="چنین کاربری وجود ندارد. پس وارد بخش ثبت نام شوید و اول ثبت نام کنید"
+                messageModalText.innerHTML = "چنین کاربری وجود ندارد. پس وارد بخش ثبت نام شوید و اول ثبت نام کنید"
             } else {
                 console.log(Object.entries(data)[findUserEmail][1].password);
                 loginForm.classList.remove("visible")
@@ -376,20 +382,20 @@ const searchWithCookiwEmail=Email=>{
 registerBtn.addEventListener("click", showRegisterForm)
 submitBtn.addEventListener("click", checkRegisterInput)
 allUser.addEventListener("click", showAccountTable)
-captcha.addEventListener("click",()=>creatCapchacode())
+captcha.addEventListener("click", () => creatCapchacode())
 loginBtn.addEventListener("click", showLoginForm)
 submitLoginBtn.addEventListener("click", checkLoginField)
 accpetBtn.addEventListener("click", deleteUser)
 ignoreBtn.addEventListener("click", closeDeleteModal)
 submitEditModal.addEventListener("click", editUser)
-messageModalBtn.addEventListener("click",()=>{
+messageModalBtn.addEventListener("click", () => {
     modal.classList.remove("visible-modal")
     messageModal.classList.remove("message-modal-visible")
 })
-checkboxText.addEventListener("click",()=>{
-    if(checkbox.checked){
-        checkbox.checked=false
-    }else{
-        checkbox.checked=true
+checkboxText.addEventListener("click", () => {
+    if (checkbox.checked) {
+        checkbox.checked = false
+    } else {
+        checkbox.checked = true
     }
 })
